@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import './index.css'
 // pages & components
 import Home from './pages/Home'
 import SignupForm from './pages/SignupForm'
+import LoginForm from './pages/LoginForm'
 
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
             <Route 
               path="/signup" 
               element={<SignupForm />} 
+            />
+            <Route 
+              path="/login" 
+              element={<LoginForm />} 
             />
           </Routes>
         </div>

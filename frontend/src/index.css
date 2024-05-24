@@ -1,0 +1,169 @@
+/* index.css */
+
+/* Theme Colors */
+:root {
+    --primary-color: #9a80cc; /* Tropical Indigo */
+    --background-color: #f8f8ff; /* Ghost White */
+    --text-color: #000000; /* Black */
+    --hover-color: #b399e6; /* Lighter Tropical Indigo */
+    --error-color: #ff4d4d; /* Red for error messages */
+  }
+  .Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it's above other content */
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
+  }
+  
+  /* Reset some basic elements */
+  body, h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  /* Set basic styles for the body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Container for the navbar */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--background-color);
+    position: relative;
+  }
+  
+  /* Style for links in the navbar */
+  .container a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  .container a:hover {
+    color: var(--hover-color);
+  }
+  
+  /* Style for the headings in the navbar */
+  .container h1 {
+    font-size: 24px;
+    margin: 0;
+    color: var(--primary-color);
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .container h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  }
+  .container2 {
+    width: 25%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+   
+  }
+  
+  /* Example button styling */
+  button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  button:hover {
+    background-color: var(--hover-color);
+  }
+
+  /*home page styling*/
+  .website_background {
+    height: 690px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  /* Example form styling */
+  
+  form.create a {
+  text-decoration: none;
+  text-align: center;
+  }
+  
+
+  
+  form.create {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid var(--primary-color); /* Add border */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  }
+  
+  form.create h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+  
+  form.create label {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  form.create input {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 4px;
+  }
+  
+  form.create input:focus {
+    outline: none;
+    border-color: var(--hover-color);
+  }
+  
+  form.create button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  form.create button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  form.create .error {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: -10px;
+  }
+  

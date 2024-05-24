@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 // components
 import Navbar from '../components/Navbar'
-
+import '../index.css'
 const Home = () => {
  
 
@@ -11,7 +11,7 @@ const Home = () => {
       <div className="Navbar">
       <Navbar />
       </div>
-      <div className="home_con">
+      <div className="website_background">
         <h1>EVENT MANAGMENT</h1>
       
     </div>

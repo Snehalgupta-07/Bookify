@@ -1,6 +1,7 @@
 
 require('dotenv').config()
 const authRoutes = require('./routes/authroutes');
+const bookroutes=require('./routes/bookroutes')
 const { requireAuth,checkUser } = require('./middleware/authMiddleware');
 
 const express = require('express')
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
 
 
 //routes
-app.use('/api/event_m',authRoutes)
+app.use('/api/event_m',authRoutes,bookroutes)
 
 //connect to db
 mongoose.connect(process.env.MONGO_URI)

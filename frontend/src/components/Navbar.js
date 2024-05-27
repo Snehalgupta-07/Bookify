@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import '../index.css';
 import { useContext } from 'react';
 import { UserContext } from '../context/user';
-
+import logo from '../Images/elogo.png';
 const Navbar = (e) => {
   const { login,username1 } = useContext(UserContext);
 
@@ -10,7 +10,7 @@ const Navbar = (e) => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>Event Management.io</h1>
+        <img src={logo} alt="Logo" className="logo" />
         </Link>
         {login ? (
           <div className="container2">

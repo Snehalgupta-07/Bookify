@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../context/user'
 import '../index.css'
 
 const SignupForm = () => {
   const [email, setEmail] = useState('')
-  
+  const {login,toggle,setUsername1} =useContext(UserContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState({ email: '', username: '', password: '' })
@@ -29,8 +30,11 @@ const SignupForm = () => {
       if (!response.ok) {
         setErrors(json.errors)
       } else {
+        toggle();
+        setUsername1(username)
         // console.log(json.user)
         console.log(username)
+
         setErrors({ email: '', username: '', password: '' })
         setEmail('')
         setUsername('')

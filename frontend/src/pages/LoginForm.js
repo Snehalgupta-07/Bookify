@@ -47,6 +47,7 @@ const LoginForm = () => {
   }
 
   return (
+    <div className="form_container">
     <form className="create" onSubmit={HandleSubmit}>
       <h3>Login</h3>
 
@@ -70,6 +71,7 @@ const LoginForm = () => {
 
       {errors.form && <div className="error">{errors.form}</div>} 
       </form>
+      </div>
   )
 }
 

@@ -4,7 +4,8 @@ import './index.css'
 import Home from './pages/Home'
 import SignupForm from './pages/SignupForm'
 import LoginForm from './pages/LoginForm'
-
+import Booklist from './pages/Booklist'
+import BsellForm from './pages/BsellForm'
 
 function App() {
 
@@ -25,6 +26,14 @@ function App() {
             <Route 
               path="/login" 
               element={<LoginForm />} 
+            />
+            <Route 
+              path="/booklist" 
+              element={<Booklist />} 
+            />
+            <Route 
+              path="/book_sell" 
+              element={<BsellForm />} 
             />
           </Routes>
         </div>

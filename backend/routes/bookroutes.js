@@ -22,6 +22,12 @@ book.save()
     });
 
 
+    router.get('/book_sell',async (req, res) => {
+        const books = await Book.find({}).sort({createdAt: -1})
+      
+        res.status(200).json(books)
+      });
+
 
 module.exports =router;
 

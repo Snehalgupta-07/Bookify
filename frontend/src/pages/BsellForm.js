@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate} from "react-router-dom";
 
 const BsellForm = () => {
     const [book,setBook]=useState('');
@@ -6,6 +7,7 @@ const BsellForm = () => {
     const [price,setPrice]=useState('');
     const [description,setDiscription]=useState('');
     const [errors,setErrors]=useState('');
+    const navigate=useNavigate();
 
   
 
@@ -33,6 +35,7 @@ const BsellForm = () => {
         setAuthor('')
         setPrice('')
         setDiscription('')
+        navigate('/old_books')
         
       }
     } catch (err) {

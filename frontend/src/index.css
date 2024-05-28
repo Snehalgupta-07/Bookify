@@ -391,3 +391,42 @@ form.create .error {
   margin-top: 9px;
   
 }
+
+.book-details {
+  width: 300px; /* Adjust the width as needed */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.book-details img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.book-details h4 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.book-details p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.book-details p.price {
+  font-size: 1.1em;
+  color: #b12704; /* Amazon's price color */
+  font-weight: bold;
+}
+
+.book-details p.description {
+  margin: 10px 20px;
+  text-align: justify;
+}

@@ -6,6 +6,7 @@ import SignupForm from './pages/SignupForm'
 import LoginForm from './pages/LoginForm'
 import Booklist from './pages/Booklist'
 import BsellForm from './pages/BsellForm'
+import OldBooks from './pages/OldBooks'
 
 function App() {
 
@@ -34,6 +35,11 @@ function App() {
             <Route 
               path="/book_sell" 
               element={<BsellForm />} 
+            />
+         
+          <Route 
+              path="/old_books" 
+              element={<OldBooks />} 
             />
           </Routes>
         </div>

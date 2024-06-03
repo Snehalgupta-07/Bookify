@@ -1,5 +1,6 @@
 const mongoose=require('mongoose');
 
+
 const bookSchema=new mongoose.Schema({
     book: {
         type:String,
@@ -17,7 +18,17 @@ const bookSchema=new mongoose.Schema({
      description: {
         type: String,
         required: [true, 'Please enter the description'],
+     },
+     image: {
+        type: String,
+        required: [true,'Please upload image of the book'],
+     },
+
+     contact: {
+        type: String,
+        required: [true, 'Please enter your contact information'],
      }
+
 });
 const Book=mongoose.model('book',bookSchema);
 module.exports = Book;

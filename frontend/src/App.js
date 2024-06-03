@@ -7,6 +7,7 @@ import LoginForm from './pages/LoginForm'
 import Booklist from './pages/Booklist'
 import BsellForm from './pages/BsellForm'
 import OldBooks from './pages/OldBooks'
+import BookDescription from './components/BookDescription'
 
 function App() {
 
@@ -41,6 +42,11 @@ function App() {
               path="/old_books" 
               element={<OldBooks />} 
             />
+            <Route 
+              path="/book-description" 
+              element={<BookDescription />} 
+            />
+            
           </Routes>
         </div>
       </BrowserRouter>

@@ -1,15 +1,13 @@
-/* index.css */
 
-/* Theme Colors */
 :root {
-  --primary-color: #9a80cc; /* Tropical Indigo */
-  --background-color: #f8f8ff; /* Ghost White */
-  --text-color: #000000; /* Black */
-  --hover-color: #b399e6; /* Lighter Tropical Indigo */
-  --error-color: #ff4d4d; /* Red for error messages */
+  --primary-color: #9a80cc; 
+  --background-color: #f8f8ff; 
+  --text-color: #000000; 
+  --hover-color: #b399e6; 
+  --error-color: #ff4d4d; 
 }
 
-/* Reset some basic elements */
+
 body, h1, h2, h3, h4, h5, h6, p, ul {
   margin: 0;
   padding: 0;
@@ -17,13 +15,13 @@ body, h1, h2, h3, h4, h5, h6, p, ul {
   text-decoration: none;
 }
 
-/* Set basic styles for the body */
+
 body {
   font-family: Arial, sans-serif;
   color: var(--text-color);
 }
 
-/* Navbar */
+
 .Navbar {
   position: fixed;
   top: 0;
@@ -437,19 +435,96 @@ form.create .error {
   text-align: justify;
 }
 .book-description {
+ 
+  height: 560px;
+  width: 100%;
   display: flex;
-  align-items: center; 
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-image: url("./Images/login.png");
 }
 
 .book-description img {
-  max-width: 200px; 
-  margin-right: 20px; 
+  margin-left: 50px;
+  width: 450px; 
+  height: 350px;
+  
+  border-radius: 8px;
 }
 
-.book-description h3 {
-  margin-top: 0; 
+.book-description_details {
+  margin-top: 150px;
+  height: 500px;
+  margin-left: 30px;
+  width: 50%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+ 
 }
 
-.book-description p {
-  margin: 5px 0; 
+.book-description_details h3 {
+  margin-left: 30px;
+  font-size: 1.8em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
 }
+
+.book-description_details p {
+  margin-left: 60px;
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #555;
+}
+
+.book-description_details p.price {
+
+  margin-left: 30px;
+  font-size: 1.5em;
+  color: #b12704; 
+  font-weight: bold;
+}
+.book-description_details p.author {
+  margin-left: 30px;
+  font-size: 1.5em;
+  color: #b12704; 
+  font-weight: bold;
+}
+
+.book-description_details p.contact {
+  
+  margin-left: 30px;
+  font-size: 21px;
+  color: #007600;
+}
+
+.book-description_details p.description {
+
+  margin-left: 30px;
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.book-description_details button {
+  margin-top: 40px;
+  margin-left: 30px;
+  align-self: flex-start;
+  padding: 10px 20px;
+  
+  background-color: #f0c14b;
+  border: 1px solid #a88734;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+

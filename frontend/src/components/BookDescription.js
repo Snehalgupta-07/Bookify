@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
-const BookDescription = ({ book }) => {
-  const [bookData, setBookData] = useState(null);
+const BookDescription = () => {
+  const location = useLocation();
+  const { book } = location.state || {};
+  const [bookData, setBookData] = useState(book);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchBook = async () => {
+      if (!book || !book._id) return;
+
       try {
         const response = await fetch(`/api/event_m/${book._id}`);
         if (!response.ok) {
@@ -17,10 +23,43 @@ const BookDescription = ({ book }) => {
       }
     };
 
- 
-      fetchBook();
-    
-  }, [book._id]);
+    fetchBook();
+  }, [book]);
+
+  const handleAddToCart = async (e) => {
+    e.preventDefault();
+
+    const bookDetails = {
+      book: bookData.book,
+      author: bookData.author,
+      price: bookData.price,
+      description: bookData.description,
+      contact: bookData.contact,
+      image: bookData.image,  
+    };
+
+    try {
+      const response = await fetch('/api/event_m/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookDetails),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        setMessage("Book cannot be added to the cart");
+        console.error("Error:", result.message);
+      } else {
+        setMessage("Book added to the cart successfully");
+        console.log("Success:", result.message);
+      }
+    } catch (err) {
+      setMessage("Request failed");
+      console.error('Request failed:', err);
+    }
+  };
 
   const backendUrl = "http://localhost:4000/api/event_m";
 
@@ -30,13 +69,15 @@ const BookDescription = ({ book }) => {
         <img src={`${backendUrl}${bookData.image}`} alt={bookData.book} />
       )}
       {bookData && (
-        <>
+        <div className="book-description_details">
           <h3>Book: {bookData.book}</h3>
-          <p>Written by {bookData.author}</p>
-          <p>Price: {bookData.price}</p>
-          <p>Contact No.: {bookData.contact}</p>
-          <p>Description: {bookData.description}</p>
-        </>
+          <h3>Written by {bookData.author}</h3>
+          <p className="price">Price: {bookData.price}</p>
+          <p className="contact">Owner's Contact No.: {bookData.contact}</p>
+          <p className="description">Description: {bookData.description}</p>
+          <button onClick={handleAddToCart}>Add to Cart</button>
+          {message && <p>{message}</p>}
+        </div>
       )}
     </div>
   );

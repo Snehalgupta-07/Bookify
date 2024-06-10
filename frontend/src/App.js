@@ -8,6 +8,7 @@ import Booklist from './pages/Booklist'
 import BsellForm from './pages/BsellForm'
 import OldBooks from './pages/OldBooks'
 import BookDescription from './components/BookDescription'
+import Cart from './pages/Cart'
 
 function App() {
 
@@ -45,6 +46,10 @@ function App() {
             <Route 
               path="/book-description" 
               element={<BookDescription />} 
+            />
+            <Route 
+              path="/cart" 
+              element={<Cart />} 
             />
             
           </Routes>

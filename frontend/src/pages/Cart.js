@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import CartDetails from "../components/Cart";
 import { UserContext } from "../context/user";
+import Navbar from '../components/Navbar'
 
 const Cart = () => {
   const [carts, setCarts] = useState(null);
@@ -26,14 +27,19 @@ const Cart = () => {
   };
 
   return (
+    
     <div className="cart_parent">
+      <div className="Navbar">
+      <Navbar />
+      </div>
       <div className="cart">
         {carts && carts.map(cart => (
           <CartDetails cart={cart} key={cart._id} onDelete={handleDelete} />
         ))}
       </div>
       <div className="total">
-        <p>Total: {total}</p>
+        <button>Total: ${total}</button>
+        <button className="two">Proceed to Pay</button>
       </div>
     </div>
   );

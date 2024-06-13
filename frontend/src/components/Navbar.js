@@ -19,11 +19,20 @@ const Navbar = (e) => {
           </div>
         ) : (
           <div className="container2">
+            <Link to="/">
+              <h1>  Home</h1>
+            </Link>
             <Link to="/signup">
               <h1>Signup</h1>
             </Link>
             <Link to="/login">
               <h1>Login</h1>
+            </Link>
+            <Link to="/cart">
+              <h1>Cart</h1>
+            </Link>
+            <Link to="/old_books">
+              <h1>Books</h1>
             </Link>
           </div>
         )}

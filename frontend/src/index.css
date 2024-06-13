@@ -527,4 +527,51 @@ form.create .error {
   margin-top: 20px;
 }
 
+.cart {
 
+  gap: 20px;
+  
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+
+.cart-details {
+  
+  width: 80%;
+  flex: 1 1 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  /* flex-direction: column; */
+}
+
+
+
+.cart-details img {
+width: 200px;
+  height: 150px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.cart-details h4 {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.cart-details p {
+  margin: 0.5em 0;
+}
+
+.cart-details .price {
+  font-weight: bold;
+  color: #e91e63;
+}
+
+/* .cart-details button{
+  margin-left: 900px;
+  margin-bottom: 90px;
+} */

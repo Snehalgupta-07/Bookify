@@ -2,7 +2,7 @@ const { Double } = require('mongodb');
 const mongoose=require('mongoose');
 
 
-const bookSchema=new mongoose.Schema({
+const cartSchema=new mongoose.Schema({
     book: {
         type:String,
         required: [true, 'Please enter name of the book']
@@ -31,6 +31,6 @@ const bookSchema=new mongoose.Schema({
      }
 
 });
-const Book=mongoose.model('book',bookSchema);
-module.exports = Book;
+const Cart=mongoose.model('cart',cartSchema);
+module.exports = Cart;
 

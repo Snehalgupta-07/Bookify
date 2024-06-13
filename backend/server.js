@@ -1,41 +1,39 @@
-
-require('dotenv').config()
+require('dotenv').config();
 const authRoutes = require('./routes/authroutes');
-const bookroutes=require('./routes/bookroutes')
-const { requireAuth,checkUser } = require('./middleware/authMiddleware');
+const bookRoutes = require('./routes/bookroutes');
+const cartRoutes = require('./routes/cartroutes');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
-const express = require('express')
-const mongoose =require('mongoose')
+const express = require('express');
+const mongoose = require('mongoose');
 
-//express app
+// express app
 const app = express();
 
-//middleware
-app.use(express.json())
-app.use(express.urlencoded({extended: false}))
-
-
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use((req, res, next) => {
-  console.log(req.path, req.method)
-  next()
-})
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
+// routes
+app.use('/api/event_m', authRoutes);  
+app.use('/api/event_m', bookRoutes);  
+app.use('/api/event_m/cart', cartRoutes);  
 
-//routes
-app.use('/api/event_m',authRoutes,bookroutes)
-
-//connect to db
+// connect to db
 mongoose.connect(process.env.MONGO_URI)
-.then(()=> {
-// listen for requests
-app.listen(process.env.PORT, () => {
-    console.log('Connected to Database and listening on port', process.env.PORT)
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT, () => {
+      console.log('Connected to Database and listening on port', process.env.PORT);
+    });
   })
-})
-.catch((error) => {
-    console.log(error)
-})
-
+  .catch((error) => {
+    console.error(error);
+  });
 
 app.get('*', checkUser);

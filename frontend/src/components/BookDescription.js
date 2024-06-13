@@ -39,7 +39,7 @@ const BookDescription = () => {
     };
 
     try {
-      const response = await fetch('/api/event_m/cart', {
+      const response = await fetch('/api/event_m/cart/cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

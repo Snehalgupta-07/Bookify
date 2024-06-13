@@ -2,24 +2,29 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { UserContext } from "../context/user";
 
 const CartDetails = ({ cart, onDelete }) => {
-  const { setTotal } = useContext(UserContext);
-  const [quantity, setQuantity] = useState(0); 
+  const {total, setTotal } = useContext(UserContext);
   const backendUrl = "http://localhost:4000/api/event_m";
   
+  // Initialize quantity from local storage
+  const getInitialQuantity = () => {
+    const storedQuant = localStorage.getItem(`quant-${cart._id}`);
+    return storedQuant ? parseInt(storedQuant, 10) : 0;
+  };
+
+  const [quantity, setQuantity] = useState(getInitialQuantity); 
   const prevQuantityRef = useRef(quantity);
 
-  // Get items from local storage
-  useEffect(() => {
-    const storedQuant = localStorage.getItem(`quant-${cart._id}`);
-    if (storedQuant) {
-      setQuantity(parseInt(storedQuant, 10));
-    }
-  }, [cart._id]);
-
-  // Set items in local storage
+  // Set items in local storage whenever quantity changes
   useEffect(() => {
     localStorage.setItem(`quant-${cart._id}`, quantity);
+    
   }, [quantity, cart._id]);
+
+  useEffect(() => {
+    localStorage.setItem('quantTotal', total);
+    
+  }, [quantity]);
+
 
   const handleIncrease = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);

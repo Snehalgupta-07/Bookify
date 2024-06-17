@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/user";
 
-const BookDetails = ({ book }) => {
+const BookFantDetails = ({ book }) => {
+   
   const navigate = useNavigate();
   const { setId } = useContext(UserContext);
   const backendUrl = "http://localhost:4000/api/event_m";
@@ -13,6 +14,7 @@ const BookDetails = ({ book }) => {
   };
 
   return (
+    
     <div className="book-details">
       {book.image && <img src={`${backendUrl}${book.image}`} alt={book.book} />}
       <h4>{book.book}</h4>
@@ -25,4 +27,4 @@ const BookDetails = ({ book }) => {
   );
 };
 
-export default BookDetails;
+export default BookFantDetails;

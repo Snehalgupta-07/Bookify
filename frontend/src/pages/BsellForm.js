@@ -7,6 +7,7 @@ const BsellForm = () => {
     const [book, setBook] = useState('');
     const [author, setAuthor] = useState('');
     const [price, setPrice] = useState('');
+    const [genre,setGenre]=useState('');
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState('');
     const [image, setImage] = useState(null);  
@@ -23,6 +24,7 @@ const BsellForm = () => {
         formData.append('book', book);
         formData.append('author', author);
         formData.append('price', price);
+        formData.append('genre', genre);
         formData.append('description', description);
         formData.append('uimage', image); 
         formData.append('contact', contact);
@@ -45,6 +47,7 @@ const BsellForm = () => {
                 setBook('');
                 setAuthor('');
                 setPrice('');
+                setGenre('');
                 setDescription('');
                 setImage(null);
                 setContact('');
@@ -59,7 +62,8 @@ const BsellForm = () => {
 
     return (
         <div className="form_container">
-            <form className="create" onSubmit={handleSubmit}>
+            <form className="create" onSubmit={handleSubmit}  >
+               
                 <h3>Add Book</h3>
 
                 <label>Book</label>
@@ -81,6 +85,12 @@ const BsellForm = () => {
                     type="text"
                     onChange={(e) => setPrice(e.target.value)}
                     value={price}
+                />
+                <label>Genre</label>
+                <input
+                    type="text"
+                    onChange={(e) => setGenre(e.target.value)}
+                    value={genre}
                 />
 
                 <label>Description</label>

@@ -2,39 +2,32 @@ import { useContext, useEffect, useState, useRef } from "react";
 import { UserContext } from "../context/user";
 
 const CartDetails = ({ cart, onDelete }) => {
-  const {total, setTotal } = useContext(UserContext);
+  const { total, setTotal } = useContext(UserContext);
   const backendUrl = "http://localhost:4000/api/event_m";
-  
+
   // Initialize quantity from local storage
   const getInitialQuantity = () => {
     const storedQuant = localStorage.getItem(`quant-${cart._id}`);
     return storedQuant ? parseInt(storedQuant, 10) : 0;
   };
 
-  const [quantity, setQuantity] = useState(getInitialQuantity); 
+  const getInitialTotal = () => {
+    const storedTotal = localStorage.getItem('quantTotal');
+    return storedTotal ? parseInt(storedTotal, 10) : 0;
+  };
+
+  const [quantity, setQuantity] = useState(getInitialQuantity);
   const prevQuantityRef = useRef(quantity);
+
+  useEffect(() => {
+    const initialTotal = getInitialTotal();
+    setTotal(initialTotal);
+  }, [total]);
 
   // Set items in local storage whenever quantity changes
   useEffect(() => {
     localStorage.setItem(`quant-${cart._id}`, quantity);
-    
   }, [quantity, cart._id]);
-
-  useEffect(() => {
-    localStorage.setItem('quantTotal', total);
-    
-  }, [quantity]);
-
-
-  const handleIncrease = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
-  };
-
-  const handleDecrease = () => {
-    if (quantity > 0) { 
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
-  };
 
   useEffect(() => {
     const prevQuantity = prevQuantityRef.current;
@@ -42,6 +35,16 @@ const CartDetails = ({ cart, onDelete }) => {
     setTotal((prevTotal) => prevTotal + difference * cart.price);
     prevQuantityRef.current = quantity;
   }, [quantity, cart.price, setTotal]);
+
+  const handleIncrease = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const handleDecrease = () => {
+    if (quantity > 0) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
 
   const handleClick = async () => {
     const response = await fetch(`/api/event_m/cart/${cart._id}`, {
@@ -58,6 +61,10 @@ const CartDetails = ({ cart, onDelete }) => {
     }
   };
 
+  useEffect(() => {
+    localStorage.setItem("quantTotal", total);
+  }, [total]);
+
   return (
     <div className="cart-details">
       {cart.image && <img src={`${backendUrl}${cart.image}`} alt={cart.book} />}
@@ -65,6 +72,7 @@ const CartDetails = ({ cart, onDelete }) => {
         <h4>{cart.book}</h4>
         <p>Written by {cart.author}</p>
         <p className="price">Price: ${cart.price}</p>
+        <p>Genre: {cart.genre}</p>
       </div>
       <div className="quantity">
         <button onClick={handleDecrease}>-</button>

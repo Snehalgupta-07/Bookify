@@ -30,14 +30,14 @@ router.use('/uploads', express.static(uploadDir));
 
 
 router.post('/book_sell', upload.single('uimage'), (req, res) => {
-    const { book, author, price, description, contact } = req.body;
+    const { book, author, price,genre, description, contact } = req.body;
     const image = req.file ? `/uploads/${req.file.filename}` : undefined;
 
     if (!image) {
         return res.status(400).json({ message: 'Image upload failed or missing' });
     }
 
-    const newBook = new Book({ book, author, price, description, image, contact });
+    const newBook = new Book({ book, author, price,genre, description, image, contact });
 
     newBook.save()
         .then(result => {
@@ -75,6 +75,7 @@ router.get('/:id', (req, res) => {
                 image: result.image,
                 author: result.author,
                 price: result.price,
+                genre: result.genre,
                 description: result.description,
                 contact: result.contact
             });

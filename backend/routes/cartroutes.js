@@ -7,13 +7,13 @@ const Cart = require('../models/Cart');
 
 
 router2.post('/cart', (req, res) => {
-    const { book, author, price, description, contact, image } = req.body;
+    const { book, author, price, genre,description, contact, image } = req.body;
 
     if (!image) {
         return res.status(400).json({ message: 'Image URL is missing' });
     }
 
-    const newCart = new Cart({ book, author, price, description, image, contact });
+    const newCart = new Cart({ book, author, price,genre, description, image, contact });
 
     newCart.save()
         .then(result => {
@@ -49,6 +49,7 @@ router2.get('/:id', (req, res) => {
                 image: result.image,
                 author: result.author,
                 price: result.price,
+                genre: result.genre,
                 description: result.description,
                 contact: result.contact
             });

@@ -33,6 +33,7 @@ const BookDescription = () => {
       book: bookData.book,
       author: bookData.author,
       price: bookData.price,
+      genre: bookData.genre,
       description: bookData.description,
       contact: bookData.contact,
       image: bookData.image,  
@@ -73,6 +74,7 @@ const BookDescription = () => {
           <h3>Book: {bookData.book}</h3>
           <h3>Written by {bookData.author}</h3>
           <p className="price">Price: {bookData.price}</p>
+          <p>Genre: {bookData.genre}</p>
           <p className="contact">Owner's Contact No.: {bookData.contact}</p>
           <p className="description">Description: {bookData.description}</p>
           <button onClick={handleAddToCart}>Add to Cart</button>

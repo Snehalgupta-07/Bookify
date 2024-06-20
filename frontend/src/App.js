@@ -9,6 +9,8 @@ import BsellForm from './pages/BsellForm'
 import OldBooks from './pages/OldBooks'
 import BookDescription from './components/BookDescription'
 import Cart from './pages/Cart'
+import { Profiler } from 'react'
+import Profile from './pages/User_Profile'
 
 function App() {
 
@@ -50,6 +52,10 @@ function App() {
             <Route 
               path="/cart" 
               element={<Cart />} 
+            />
+            <Route 
+              path="/profile" 
+              element={<Profile />} 
             />
             
           </Routes>

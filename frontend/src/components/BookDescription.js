@@ -62,6 +62,42 @@ const BookDescription = () => {
     }
   };
 
+  const handleAddToWishlist = async (e) => {
+    e.preventDefault();
+
+    const bookDetails = {
+      book: bookData.book,
+      author: bookData.author,
+      price: bookData.price,
+      genre: bookData.genre,
+      description: bookData.description,
+      contact: bookData.contact,
+      image: bookData.image,  
+    };
+
+    try {
+      const response = await fetch('/api/event_m/wish/wish', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookDetails),
+      });
+      const result = await response.json();
+
+      if (!response.ok) {
+        setMessage("Book cannot be added to the Wishlist ");
+        console.error("Error:", result.message);
+      } else {
+        setMessage("Book added to the Wishlist successfully");
+        console.log("Success:", result.message);
+      }
+    } catch (err) {
+      setMessage("Request failed");
+      console.error('Request failed:', err);
+    }
+  };
+
   const backendUrl = "http://localhost:4000/api/event_m";
 
   return (
@@ -78,6 +114,7 @@ const BookDescription = () => {
           <p className="contact">Owner's Contact No.: {bookData.contact}</p>
           <p className="description">Description: {bookData.description}</p>
           <button onClick={handleAddToCart}>Add to Cart</button>
+          <button onClick={handleAddToWishlist}>Add to Wishlist</button>
           {message && <p>{message}</p>}
         </div>
       )}

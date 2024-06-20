@@ -2,6 +2,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/authroutes');
 const bookRoutes = require('./routes/bookroutes');
 const cartRoutes = require('./routes/cartroutes');
+const wishRoutes =require('./routes/wishroutes');
 const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 
 const express = require('express');
@@ -23,6 +24,8 @@ app.use((req, res, next) => {
 app.use('/api/event_m', authRoutes);  
 app.use('/api/event_m', bookRoutes);  
 app.use('/api/event_m/cart', cartRoutes);  
+app.use('/api/event_m/wish', wishRoutes);  
+
 
 // connect to db
 mongoose.connect(process.env.MONGO_URI)

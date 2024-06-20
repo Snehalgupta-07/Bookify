@@ -16,6 +16,7 @@ const Navbar = (e) => {
           <div className="container2">
             <a href="/">Logout</a>
             <h3>{username1}</h3>
+            <Link to="/profile">Profile</Link>
           </div>
         ) : (
           <div className="container2">

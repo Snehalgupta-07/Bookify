@@ -87,9 +87,18 @@ const Home = () => {
         <div className="user_button">
           <button><a href='./book_sell'>View</a></button>
         </div>
+        </div>
+        <div className="user_book">
+        <div className="user_con">
+          <h1>Want to <span>swap</span> your  book ??</h1>
+          <p>Discover our new Book Swap feature! Easily list your books for exchange, <br /><br />browse others' collections, send swap requests, chat with users, and enjoy hassle-free<br /><br /> book trading within our community</p>
+        </div>
+        <div className="user_button">
+          <button><a href='./swap'>View</a></button>
+        </div>
       </div>
-         
-    </div>
+        </div>
+    
     
   )
 }

@@ -11,6 +11,7 @@ import BookDescription from './components/BookDescription'
 import Cart from './pages/Cart'
 import { Profiler } from 'react'
 import Profile from './pages/User_Profile'
+import BookSwap from './pages/BookSwap'
 
 function App() {
 
@@ -56,6 +57,10 @@ function App() {
             <Route 
               path="/profile" 
               element={<Profile />} 
+            />
+            <Route 
+              path="/swap" 
+              element={<BookSwap />} 
             />
             
           </Routes>

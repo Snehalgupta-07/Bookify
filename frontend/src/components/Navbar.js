@@ -35,6 +35,7 @@ const Navbar = (e) => {
             <Link to="/old_books">
               <h1>Books</h1>
             </Link>
+            <Link to="/profile">Profile</Link>
           </div>
         )}
       </div>

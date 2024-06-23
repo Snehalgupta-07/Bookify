@@ -633,3 +633,157 @@ margin-top: 70px;
 .two{
   margin-left: 500px;
 }
+
+
+/* styles.css */
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+h2 {
+  color: #4b0082; /* Tropical Indigo */
+}
+
+h4 {
+  color: #4b0082; /* Tropical Indigo */
+}
+
+p {
+  margin: 0.5em 0;
+}
+
+/* User Profile */
+.user_profile {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.user_profile h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+/* Wishlist */
+.wishlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 20px;
+  background-color: #f1f1f1;
+}
+
+.WishDetails {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.WishDetails img {
+ width: 200px;
+ height: 200px;
+  border-radius: 10px;
+}
+
+.WishDetails h4 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.WishDetails p {
+  color: #555555;
+}
+
+.WishDetails .price {
+  font-weight: bold;
+  color: #ff6347; /* Tomato color for price */
+}
+
+.WishDetails .genre {
+  font-style: italic;
+  color: #4b0082; /* Tropical Indigo */
+}
+.swap_books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.add_book, .browse_books, .swap_requests {
+  width: 80%;
+  margin: 20px 0;
+}
+
+.add_book h2, .browse_books h2, .swap_requests h2 {
+  margin-bottom: 10px;
+}
+
+.add_book input, .add_book textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add_book button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add_book button:hover {
+  background-color: #45a049;
+}
+
+.browse_books .books_list, .swap_requests .requests_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book_card, .request_card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  width: calc(33% - 20px);
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.book_card h3, .request_card h3 {
+  margin: 0 0 10px;
+}
+
+.book_card p, .request_card p {
+  margin: 5px 0;
+}
+
+.book_card button {
+  padding: 8px 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book_card button:hover {
+  background-color: #0056b3;
+}
